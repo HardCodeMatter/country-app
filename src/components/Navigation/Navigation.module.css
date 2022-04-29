@@ -1,0 +1,5 @@
+.container {
+    width: 260px;
+    background-color: var(--color-gray-dark);
+    height: 100vh;
+}
