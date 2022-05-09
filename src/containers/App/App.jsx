@@ -1,21 +1,25 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import routesConfig from '@routes/routesConfig';
+
 import { Navigation } from '@components/Navigation/Navigation';
-import { Dashboard } from '@containers/Dashboard/Dashboard';
-import { Tasks } from '@containers/Tasks/Tasks';
+// import { Dashboard } from '@containers/Dashboard/Dashboard';
 
 import styles from "./App.module.css";
 
 const App = () => {
     return (
         <div className={styles.container}>
-            <Navigation />
+            <nav>
+                <Navigation />
+            </nav>
 
             <div className={styles.content}>
                 <Routes>
-                    <Route path='/' element={<Dashboard />} />
-                    <Route path='tasks' element={<Tasks />} />
+                    {routesConfig.map((route, index) => (
+                        <Route key={index} path={route.path} element={route.element} />
+                    ))}
                 </Routes>
             </div>
         </div>

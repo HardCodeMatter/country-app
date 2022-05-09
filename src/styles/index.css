@@ -5,12 +5,23 @@
     --color-white: #FFFEFD;
     --color-gray-dark: #625F6E;
 
+    --gradient-violet: linear-gradient(118deg, var(--color-violet), rgba(115, 103, 240, .7));
+
     --font-size-small: 14px;
-    --font-size-medium: 18px;
+    --font-size-medium: 16px;
     --font-size-large: 28px;
 
+    --font-weight-default: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
+
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+
+    --border-radius-small: 3px;
+    --border-radius-medium: 5px;
+
+    --transition: .3s;
 }
 
 * {

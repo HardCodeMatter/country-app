@@ -5,3 +5,11 @@ body {
 .container {
     display: flex;
 }
+
+nav {
+    width: 260px;
+}
+
+.content {
+    padding: var(--spacing-large);
+}

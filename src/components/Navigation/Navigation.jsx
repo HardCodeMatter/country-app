@@ -1,29 +1,28 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import styles from "./Navigation.module.css";
 
 const Navigation = () => {
+    const isActive = ({ isActive }) => {
+        return isActive ? styles.active : styles.inactive;
+    };
+
     return (
         <div className={styles.container}>
-            <div className={styles.header}>
-                <div className={styles.logo}>Company</div>
-
+            <nav>
                 <ul className={styles.menu}>
-                    <li><NavLink to='/'>Dashboard</NavLink></li>
-                    <li><NavLink to='/tasks'>Tasks</NavLink></li>
-                    <li><NavLink to='/tags'>Tags</NavLink></li>
-                    <li><NavLink to='/calendar'>Calendar</NavLink></li>
-
-                    <p>Misc</p>
-                    <li><Link to='/support'>Support</Link></li>
-                    <li><Link to='/documentation'>Documentation</Link></li>
+                    <li>
+                        <NavLink className={isActive} to='/'>Dashboard</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={isActive} to='/countries'>Countries</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={isActive} to='/search'>Search</NavLink>
+                    </li>
                 </ul>
-            </div>
-
-            <div className={styles.header__bottom}>
-                <NavLink to='setting'>Setting</NavLink>
-            </div>
+            </nav>
         </div>
     );
 }

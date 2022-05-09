@@ -1,5 +1,38 @@
 .container {
     width: 260px;
-    background-color: var(--color-gray-dark);
     height: 100vh;
+    background-color: var(--color-white, 10%);
+}
+
+.menu li {
+    list-style-type: none;
+    margin: 10px 20px;
+}
+
+.menu .icons {
+    width: 20px;
+    height: 20px;
+}
+
+.menu li:hover {
+    background-color: rgba(98, 95, 110, .06);
+    border-radius: var(--border-radius-medium);
+    transition: var(--transition);
+}
+
+.menu a {
+    display: block;
+    
+    text-decoration: none;
+    color: var(--color-gray-dark);
+    font-size: var(--font-size-small);
+    
+    padding: 10px 20px;
+}
+
+.active {
+    background: var(--gradient-violet);
+    border-radius: var(--border-radius-medium);
+    color: var(--color-white) !important;
+    transition: var(--transition);
 }
