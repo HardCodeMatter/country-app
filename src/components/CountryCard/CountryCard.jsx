@@ -4,17 +4,12 @@ import { Link } from 'react-router-dom';
 import styles from "./CountryCard.module.css";
 
 const CountryCard = ({ countries }) => {
-    // const maskOfPopulation = (population) => {
-    //     return population
-    //         .toString()
-    //         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-    // };
 
     return (
         <ul className={styles.list__container}>
             {countries.map(({ id, name, capital, media, population }) => (
                 <li className={styles.list__item} key={id}>
-                    <Link to={`${id}`}>
+                    <Link to={`/countries/${id}`}>
                         <img className={styles.country__flag} src={media.flag} alt="" />
                         <div className={styles.country__content}>
                             <h2 className={styles.country__name}>{name}</h2>

@@ -1,48 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { getApiResource } from '@utils/network';
 import { API_COUNTRIES } from '@constants/constants';
 
 import styles from "./Country.module.css";
-import { useParams } from 'react-router-dom';
 
 const Country = () => {
-    const [countryName, setCountryName] = useState(null);
-    const [countryId, setCountryId] = useState(null);
-    const [countryFlag, setCountryFlag] = useState(null);
-    const [countryInfo, setCountryInfo] = useState(null);
+    const [countries, setCountries] = useState(null);
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
+    const handleGoBack = (e) => {
+        e.preventDefault();
+        navigate(-1);
+    };
+
+    const getResponse = async (url) => {
+        const res = await getApiResource(url);
+
+        if (res) {
+            const countriesList = res.map(({ id, name, capital, media, population }) => {
+                return { id, name, capital, media, population };
+            });
+
+            setCountries(countriesList);
+        }
+    };
+    
     useEffect(() => {
-        async () => {
-            const res = await getApiResource(API_COUNTRIES);
-
-            if (res) {
-                setCountryName(res.name);
-                // setCountryId(res.id);
-                setCountryInfo([
-                    { title: 'Capital', data: res.capital },
-                    { title: 'Population', data: res.population },
-                    { title: 'Currency', data: res.currency },
-                    { title: 'Abbreviation', data: res.abbreviation },
-                ]);
-            }
-        };
+        getResponse(API_COUNTRIES);
     }, []);
-
+    
     return (
         <>
             <h2>Country</h2>
             {id}
-
-            {/* {countryInfo.map(({ id }) => (
-                <p>{id === idPar}</p>
-            ))} */}
-            {/* <h3>{countryName}</h3> */}
-            <ul>{countryInfo && countryInfo.map(({ title, data }) => (
-                <li key={Math.random() * 10}>{title} : {data}</li>
-            ))}</ul>
+            <a href="#" onClick={handleGoBack}>Go back</a>
+            <div>
+                {countries && countries.filter(item => item.id == id).map(({ id, name, capital, media, population }) => (
+                    <ul key={id}>
+                        <li>{name}</li>
+                        <li>{capital}</li>
+                        <li>{population}</li>
+                    </ul>
+                ))}
+            </div>
         </>
     );
 }

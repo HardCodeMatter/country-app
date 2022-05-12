@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import { CountryCard } from '@components/CountryCard/CountryCard';
 
@@ -6,6 +7,7 @@ import { API_COUNTRIES } from '@constants/constants';
 import { getApiResource } from '@utils/network';
 
 import styles from "./Countries.module.css";
+import { Country } from '../Country/Country';
 
 const Countries = () => {
     const [countries, setCountries] = useState(null);
@@ -25,7 +27,7 @@ const Countries = () => {
     useEffect(() => {
         getResponse(API_COUNTRIES);
     }, []);
-
+    
     return (
         <>
             <h2>Countries</h2>
