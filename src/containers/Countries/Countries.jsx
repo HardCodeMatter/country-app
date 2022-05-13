@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 
 import { CountryCard } from '@components/CountryCard/CountryCard';
 
@@ -7,7 +6,6 @@ import { API_COUNTRIES } from '@constants/constants';
 import { getApiResource } from '@utils/network';
 
 import styles from "./Countries.module.css";
-import { Country } from '../Country/Country';
 
 const Countries = () => {
     const [countries, setCountries] = useState(null);
@@ -30,7 +28,8 @@ const Countries = () => {
     
     return (
         <>
-            <h2>Countries</h2>
+            <h2 className={styles.header}>Countries</h2>
+
             {countries && <CountryCard countries={countries} />}
         </>
     );

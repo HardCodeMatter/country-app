@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom';
 import routesConfig from '@routes/routesConfig';
 
 import { Navigation } from '@components/Navigation/Navigation';
-// import { Dashboard } from '@containers/Dashboard/Dashboard';
 
 import styles from "./App.module.css";
 
