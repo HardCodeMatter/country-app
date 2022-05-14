@@ -1,6 +1,7 @@
 import { Dashboard } from '@containers/Dashboard/Dashboard';
 import { Countries } from '@containers/Countries/Countries';
 import { Country } from '@containers/Country/Country';
+import { Search } from '@containers/Search/Search';
 
 const routesConfig = [
     {
@@ -14,6 +15,10 @@ const routesConfig = [
     {
         path: 'countries/:id',
         element: <Country />
+    },
+    {
+        path: 'search',
+        element: <Search />
     }
 ];
 
