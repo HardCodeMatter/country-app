@@ -3,17 +3,17 @@ import React, { useState, useEffect } from 'react';
 import { getApiResource } from '@utils/network';
 import { API_COUNTRIES } from '@constants/constants';
 
-import { CountryCard } from '@components/CountryCard/CountryCard';
+import { SearchCard } from '@components/SearchCard/SearchCard';
 
 import styles from "./Search.module.css";
 
 const Search = () => {
-    const [countries, setCountries] = useState(null);
-    const [countriesName, setCountriesName] = useState(null);
+    const [countries, setCountries] = useState();
+    const [searchValue, setSearchValue] = useState();
 
     const handleCountries = (e) => {
         e.preventDefault();
-        setCountriesName(e.target.value);
+        setSearchValue(e.target.value);
     };
 
     const getResponse = async (url) => {
@@ -36,7 +36,7 @@ const Search = () => {
         <>
             <h2>Search</h2>
             <input onChange={handleCountries} type="text" />
-            {countries && <CountryCard countries={countries.filter(({ name }) => name.includes(countriesName)).map(item => item)} />}
+            {countries && <SearchCard countries={searchValue ? countries.filter(({ name }) => name.includes(searchValue)) : countries} />}
         </>
     );
 }
