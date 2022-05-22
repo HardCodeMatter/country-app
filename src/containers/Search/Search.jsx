@@ -16,6 +16,10 @@ const Search = () => {
         setSearchValue(e.target.value);
     };
 
+    const searchCountries = searchValue 
+        ? countries.filter(({ name }) => name.includes(searchValue)) 
+        : countries;
+
     const getResponse = async (url) => {
         const res = await getApiResource(url);
 
@@ -36,7 +40,7 @@ const Search = () => {
         <>
             <h2>Search</h2>
             <input onChange={handleCountries} type="text" />
-            {countries && <SearchCard countries={searchValue ? countries.filter(({ name }) => name.includes(searchValue)) : countries} />}
+            {countries && <SearchCard countries={searchCountries} />}
         </>
     );
 }

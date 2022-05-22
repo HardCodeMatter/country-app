@@ -21,6 +21,7 @@ module.exports = {
                         '@routes': path.resolve('src/routes'),
                         '@utils': path.resolve('src/utils'),
                         '@constants': path.resolve('src/constants'),
+                        '@context': path.resolve('src/context'),
                     }
                 },
                 use: {

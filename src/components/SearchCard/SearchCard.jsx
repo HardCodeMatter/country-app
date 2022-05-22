@@ -14,6 +14,7 @@ const SearchCard = ({ countries }) => {
                                 <Link to={`/countries/${id}`}>
                                     <img src={media.flag} alt="" />
                                     <p>{name}</p>
+                                    <p>{capital}</p>
                                 </Link>
                             </li>
                         ))}
@@ -22,7 +23,7 @@ const SearchCard = ({ countries }) => {
                 : <h2>No results</h2>
             }
         </>
-    );countries
+    );
 }
 
 export { SearchCard };

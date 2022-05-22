@@ -2,6 +2,10 @@
     margin-bottom: 20px;
 }
 
+.dark {
+    color: var(--color-white);
+}
+
 .back {
     font-size: var(--font-size-small);
     text-decoration: none;

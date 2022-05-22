@@ -1,15 +1,22 @@
-body {
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.light__container {
     background-color: #e6e6e6;
 }
 
-.container {
-    display: flex;
+.dark__container {
+    background-color: var(--color-cobalt-blue);
 }
 
 nav {
+    position: fixed;
     width: 260px;
 }
 
 .content {
+    margin-left: 260px;
     padding: var(--spacing-large);
 }

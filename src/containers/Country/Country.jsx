@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import cn from 'classnames';
 
 import { getApiResource } from '@utils/network';
 import { API_COUNTRIES } from '@constants/constants';
+import { ThemeContext } from '@context/ThemeProvider';
 
 import styles from "./Country.module.css";
 
@@ -33,6 +35,8 @@ const Country = () => {
         getResponse(API_COUNTRIES);
     }, []);
 
+    const { theme } = useContext(ThemeContext);
+
     return (
         <>
             <h2 className={styles.header}>Country
@@ -43,7 +47,7 @@ const Country = () => {
                 {countries && countries.filter(item => item.id == id).map(({ id, name, capital, media, population, abbreviation, currency, phone }) => (
                     <div className={styles.country} key={id}>
                         <img src={media.flag} alt="" />
-                        <div className={styles.country__content}>
+                        <div className={cn(styles.country__content, styles[`${theme}`])}>
                             <h2 className={styles.country__name}>{name}</h2>
                             <ul>
                                 <div className={styles.country__main}>

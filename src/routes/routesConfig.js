@@ -2,6 +2,7 @@ import { Dashboard } from '@containers/Dashboard/Dashboard';
 import { Countries } from '@containers/Countries/Countries';
 import { Country } from '@containers/Country/Country';
 import { Search } from '@containers/Search/Search';
+import { Setting } from '@containers/Setting/Setting';
 
 const routesConfig = [
     {
@@ -19,6 +20,10 @@ const routesConfig = [
     {
         path: 'search',
         element: <Search />
+    },
+    {
+        path: 'setting',
+        element: <Setting />
     }
 ];
 

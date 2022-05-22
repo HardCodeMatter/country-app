@@ -1,7 +1,31 @@
 .container {
+    position:fixed;
     width: 260px;
     height: 100vh;
+}
+
+.light__container {
     background-color: var(--color-white, 10%);
+}
+
+.light__menu li:hover {
+    background-color: rgba(98, 95, 110, .06);
+}
+
+.light__menu a {
+    color: var(--color-gray-dark);
+}
+
+.dark__container {
+    background-color: var(--color-night-blue);
+}
+
+.dark__menu li:hover {
+    background-color: var(--color-cobalt-blue);
+}
+
+.dark__menu a {
+    color: var(--color-white);
 }
 
 .menu {
@@ -19,7 +43,6 @@
 }
 
 .menu li:hover {
-    background-color: rgba(98, 95, 110, .06);
     border-radius: var(--border-radius-medium);
     transition: var(--transition);
 }
@@ -28,7 +51,6 @@
     display: block;
     
     text-decoration: none;
-    color: var(--color-gray-dark);
     font-size: var(--font-size-small);
     
     padding: 10px 20px;

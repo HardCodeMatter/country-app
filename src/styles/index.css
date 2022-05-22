@@ -4,6 +4,8 @@
     --color-violet: #7367F0;
     --color-white: #FFFEFD;
     --color-gray-dark: #625F6E;
+    --color-cobalt-blue: #161d31;
+    --color-night-blue: #283046;
 
     --gradient-violet: linear-gradient(118deg, var(--color-violet), rgba(115, 103, 240, .7));
 
@@ -30,5 +32,5 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    color: var(--color-gray-dark);
+    /* color: var(--color-gray-dark); */
 }
